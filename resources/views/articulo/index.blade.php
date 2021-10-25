@@ -25,8 +25,12 @@
                 <td>{{$articulo->cantidad}}</td>
                 <td>{{$articulo->precio}}</td>
                 <td>
-                    <a class="btn btn-info">Editar</a>
-                    <button class="btn btn-danger">Borrar</button>
+                    <form action="{{ route ('articulos.destroy',$articulo->id)}}" method="POST">
+                    <a href="/articulos/{{ $articulo->id}}/edit" class="btn btn-info">Editar</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Borrar</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
