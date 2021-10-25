@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Articulo;
 
 class ArticuloController extends Controller
 {
@@ -13,7 +14,11 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        //
+        //Metodo para Mandar Todos los registros
+        $articulos = Articulo::all();
+        //vista index
+        return view('articulo.index')->with('articulos', $articulos);
+
     }
 
     /**
@@ -23,7 +28,8 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        //
+        return view('articulo.create');
+
     }
 
     /**
@@ -34,7 +40,7 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Guardar Articulo
     }
 
     /**
